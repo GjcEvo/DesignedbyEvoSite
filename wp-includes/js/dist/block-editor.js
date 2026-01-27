@@ -39964,6 +39964,7 @@ function Iframe({
   const html = `<!doctype html>
 <html>
 	<head>
+<base href="/DesignedbyEvoSite/">
 		<meta charset="utf-8">
 		<base href="${window.location.origin}">
 		<script>window.frameElement._load()</script>
