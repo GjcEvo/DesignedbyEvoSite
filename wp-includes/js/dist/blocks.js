@@ -161,8 +161,7 @@ function getDefaultOpts (simple) {
     },
     completeHTMLDocument: {
       defaultValue: false,
-      description: 'Outputs a complete html document, including `<html>`, `<head>
-<base href="/DesignedbyEvoSite/">` and `<body>` tags',
+      description: 'Outputs a complete html document, including `<html>`, `<head>` and `<body>` tags',
       type: 'boolean'
     },
     metadata: {
@@ -3188,8 +3187,7 @@ showdown.subParser('completeHTMLDocument', function (text, options, globals) {
     }
   }
 
-  text = doctypeParsed + '<html' + lang + '>\n<head>
-<base href="/DesignedbyEvoSite/">\n' + title + charset + metadata + '</head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
+  text = doctypeParsed + '<html' + lang + '>\n<head>\n' + title + charset + metadata + '</head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
 
   text = globals.converter._dispatch('completeHTMLDocument.after', text, options, globals);
   return text;
