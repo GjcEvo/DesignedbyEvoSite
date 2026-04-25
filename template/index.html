@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segcom Group Systems – Power Your Business in the Cloud Era</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #03112a;
+    --navy: #0A2540;
+    --blue: #1a4a7a;
+    --cyan: #00d4ff;
+    --cyan2: #0099cc;
+    --glow: rgba(0,212,255,0.18);
+    --glow2: rgba(0,212,255,0.06);
+    --white: #f8fafc;
+    --grey: #94a3b8;
+    --light-bg: #f0f4f8;
+    --card-bg: rgba(255,255,255,0.04);
+    --border: rgba(0,212,255,0.12);
+    --border2: rgba(255,255,255,0.08);
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--deep);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--deep); }
+  ::-webkit-scrollbar-thumb { background: var(--cyan2); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.1rem 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(3,17,42,0.72);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border2);
+    transition: var(--transition);
+  }
+  nav.scrolled {
+    padding: 0.8rem 4rem;
+    background: rgba(3,17,42,0.95);
+    box-shadow: 0 4px 40px rgba(0,0,0,0.4);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.6rem;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 16px var(--glow);
+    flex-shrink: 0;
+  }
+  .nav-logo-icon svg { width: 22px; height: 22px; }
+  .nav-logo-text { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; color: var(--white); }
+  .nav-logo-text span { color: var(--cyan); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a { color: var(--grey); text-decoration: none; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.02em; transition: var(--transition); }
+  .nav-links a:hover { color: var(--cyan); }
+  .nav-cta {
+    padding: 0.55rem 1.4rem;
+    background: linear-gradient(135deg, var(--cyan2), var(--cyan));
+    color: var(--deep); font-weight: 600; font-size: 0.88rem;
+    border: none; border-radius: 50px; cursor: pointer; text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 0 20px rgba(0,212,255,0.3);
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 32px rgba(0,212,255,0.5); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
+  .mobile-menu {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: rgba(3,17,42,0.98); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 1.5rem 2rem;
+    z-index: 99; flex-direction: column; gap: 1.2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border2); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    padding: 7rem 2rem 4rem;
+    text-align: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,153,204,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 20% 100%, rgba(10,37,64,0.8) 0%, transparent 60%),
+                linear-gradient(180deg, #03112a 0%, #071c3a 60%, #03112a 100%);
+  }
+  /* Grid lines */
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+  }
+  /* Canvas particles */
+  #hero-canvas { position: absolute; inset: 0; z-index: 1; }
+  .hero-content { position: relative; z-index: 2; max-width: 840px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 1rem; border-radius: 50px;
+    border: 1px solid var(--border);
+    background: rgba(0,212,255,0.06);
+    font-size: 0.78rem; color: var(--cyan); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1.8rem;
+    animation: fadeDown 0.8s ease both;
+  }
+  .hero-badge span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); animation: pulse 1.5s ease infinite; }
+  .hero-h1 {
+    font-family: var(--font-head); font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 800; line-height: 1.06; letter-spacing: -0.02em;
+    color: var(--white);
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+  .hero-h1 .accent {
+    background: linear-gradient(135deg, var(--cyan), #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    margin: 1.5rem auto 2.5rem;
+    font-size: clamp(1rem, 2vw, 1.2rem); color: var(--grey);
+    max-width: 600px; font-weight: 300;
+    animation: fadeUp 0.9s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.9s 0.35s ease both;
+  }
+  .btn-primary {
+    padding: 0.85rem 2.2rem;
+    background: linear-gradient(135deg, var(--cyan2), var(--cyan));
+    color: var(--deep); font-weight: 700; font-size: 0.95rem;
+    border: none; border-radius: 50px; cursor: pointer; text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 0 30px rgba(0,212,255,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
+  .btn-outline {
+    padding: 0.85rem 2.2rem;
+    background: transparent;
+    color: var(--white); font-weight: 500; font-size: 0.95rem;
+    border: 1px solid var(--border); border-radius: 50px; cursor: pointer; text-decoration: none;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+  }
+  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,212,255,0.05); }
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    z-index: 2; animation: fadeUp 1s 0.6s ease both; opacity: 0;
+  }
+  .hero-scroll.visible { opacity: 1; }
+  .scroll-dot { width: 2px; height: 40px; background: linear-gradient(180deg, var(--cyan), transparent); border-radius: 2px; animation: scrollDot 1.5s ease infinite; }
+  .hero-stats {
+    display: flex; gap: 3rem; justify-content: center; margin-top: 4rem;
+    animation: fadeUp 0.9s 0.5s ease both;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--white); }
+  .stat-num span { color: var(--cyan); }
+  .stat-label { font-size: 0.78rem; color: var(--grey); letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* ─── SECTION GENERIC ─── */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1180px; margin: 0 auto; }
+  .section-label {
+    display: inline-block;
+    padding: 0.3rem 0.9rem; border-radius: 50px;
+    background: rgba(0,212,255,0.08); border: 1px solid var(--border);
+    font-size: 0.72rem; color: var(--cyan); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 1rem; font-weight: 600;
+  }
+  .section-title {
+    font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800; line-height: 1.1; color: var(--white); letter-spacing: -0.02em;
+  }
+  .section-title.dark { color: var(--navy); }
+  .section-sub { font-size: 1.05rem; color: var(--grey); margin-top: 0.8rem; max-width: 560px; font-weight: 300; }
+  .section-sub.dark { color: var(--muted); }
+
+  /* ─── ABOUT ─── */
+  #about { background: #f0f4f8; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-visual {
+    position: relative; aspect-ratio: 1; max-width: 440px;
+  }
+  .about-orb {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 40% 40%, rgba(0,153,204,0.2), transparent 70%);
+    border-radius: 50%;
+  }
+  .about-rings {
+    position: absolute; inset: 0;
+    border: 1px solid rgba(10,37,64,0.12); border-radius: 50%;
+    animation: spin 18s linear infinite;
+  }
+  .about-rings:nth-child(2) { inset: 15%; border-color: rgba(0,153,204,0.15); animation-duration: 12s; animation-direction: reverse; }
+  .about-rings:nth-child(3) { inset: 30%; border-color: rgba(10,37,64,0.1); animation-duration: 8s; }
+  .about-center {
+    position: absolute; inset: 30%;
+    background: linear-gradient(135deg, var(--navy), var(--cyan2));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 60px rgba(0,153,204,0.3);
+  }
+  .about-center svg { width: 50px; height: 50px; }
+  .pillars { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+  .pillar {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem; border-radius: 14px;
+    background: white; border: 1px solid rgba(10,37,64,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    transition: var(--transition);
+  }
+  .pillar:hover { transform: translateX(6px); box-shadow: 0 6px 24px rgba(0,153,204,0.12); border-color: rgba(0,153,204,0.3); }
+  .pillar-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--navy), var(--cyan2));
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 14px rgba(0,153,204,0.2);
+  }
+  .pillar-icon svg { width: 22px; height: 22px; color: white; }
+  .pillar h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--navy); }
+  .pillar p { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--deep); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    padding: 2.2rem 1.8rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    transition: var(--transition);
+    position: relative; overflow: hidden;
+    cursor: default;
+  }
+  .service-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, transparent 60%);
+    opacity: 0; transition: var(--transition);
+  }
+  .service-card:hover { transform: translateY(-8px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.08); }
+  .service-card:hover::before { opacity: 1; }
+  .service-icon-wrap {
+    width: 56px; height: 56px; border-radius: 14px; margin-bottom: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,153,204,0.05));
+    border: 1px solid rgba(0,212,255,0.2);
+    box-shadow: 0 0 20px rgba(0,212,255,0.1);
+  }
+  .service-icon-wrap svg { width: 28px; height: 28px; color: var(--cyan); }
+  .service-card h3 { font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.88rem; color: var(--grey); line-height: 1.65; }
+  .service-features { margin-top: 1.2rem; list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .service-features li { font-size: 0.82rem; color: var(--grey); display: flex; align-items: center; gap: 0.5rem; }
+  .service-features li::before { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+  .service-num {
+    position: absolute; top: 1.4rem; right: 1.8rem;
+    font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
+    color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
+  }
+
+  /* ─── PARALLAX CLOUD SECTION ─── */
+  #cloud-section {
+    position: relative; min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; background: linear-gradient(180deg, var(--deep) 0%, #061528 50%, var(--deep) 100%);
+    padding: 6rem 2rem;
+  }
+  #cloud-canvas { position: absolute; inset: 0; }
+  .cloud-text {
+    position: relative; z-index: 2; text-align: center; max-width: 700px;
+  }
+  .cloud-text h2 {
+    font-family: var(--font-head); font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--white);
+  }
+  .cloud-text h2 .glow-word {
+    background: linear-gradient(135deg, var(--cyan), #60a5fa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0,212,255,0.4));
+  }
+  .cloud-text p { margin-top: 1.2rem; font-size: 1.05rem; color: var(--grey); font-weight: 300; }
+  .cloud-tags { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+  .cloud-tag {
+    padding: 0.4rem 1rem; border-radius: 50px;
+    border: 1px solid rgba(0,212,255,0.2);
+    background: rgba(0,212,255,0.05);
+    font-size: 0.82rem; color: var(--cyan);
+    backdrop-filter: blur(8px);
+  }
+
+  /* ─── WHY CHOOSE US ─── */
+  #why { background: #f0f4f8; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .why-card {
+    padding: 2rem;
+    background: white; border-radius: 18px;
+    border: 1px solid rgba(10,37,64,0.08);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    transition: var(--transition); text-align: center;
+  }
+  .why-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,153,204,0.12); border-color: rgba(0,153,204,0.25); }
+  .why-icon {
+    width: 60px; height: 60px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--navy), var(--cyan2));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 4px 20px rgba(0,153,204,0.3);
+  }
+  .why-icon svg { width: 28px; height: 28px; color: white; }
+  .why-card h4 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .why-card p { font-size: 0.87rem; color: var(--muted); }
+
+  /* ─── PROCESS ─── */
+  #process { background: var(--deep); }
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    margin-top: 3rem; position: relative;
+  }
+  .process-steps::after {
+    content: ''; position: absolute;
+    top: 36px; left: calc(12.5%); right: calc(12.5%);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan2), var(--cyan), transparent);
+  }
+  .process-step { text-align: center; padding: 0 1rem; position: relative; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy), var(--cyan2));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: white;
+    position: relative; z-index: 1;
+    border: 3px solid var(--deep);
+    box-shadow: 0 0 30px rgba(0,212,255,0.25);
+    transition: var(--transition);
+  }
+  .process-step:hover .step-num { transform: scale(1.1); box-shadow: 0 0 50px rgba(0,212,255,0.4); }
+  .process-step h4 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+  .process-step p { font-size: 0.82rem; color: var(--grey); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: linear-gradient(180deg, #061528, var(--deep)); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem; border-radius: 14px;
+    background: var(--card-bg); border: 1px solid var(--border2);
+    transition: var(--transition);
+  }
+  .contact-item:hover { border-color: var(--border); background: rgba(0,212,255,0.04); }
+  .contact-item-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,153,204,0.05));
+    border: 1px solid rgba(0,212,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-item-icon svg { width: 20px; height: 20px; color: var(--cyan); }
+  .contact-item h5 { font-size: 0.78rem; color: var(--grey); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+  .contact-item p, .contact-item a { font-size: 0.95rem; color: var(--white); text-decoration: none; }
+  .contact-item a:hover { color: var(--cyan); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.8rem; color: var(--grey); letter-spacing: 0.04em; }
+  .form-group input, .form-group textarea {
+    padding: 0.85rem 1.1rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border2); border-radius: 10px;
+    color: var(--white); font-family: var(--font-body); font-size: 0.9rem;
+    transition: var(--transition); outline: none; resize: vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--cyan); background: rgba(0,212,255,0.04); box-shadow: 0 0 0 3px rgba(0,212,255,0.08); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--muted); }
+  .form-submit {
+    padding: 0.95rem;
+    background: linear-gradient(135deg, var(--cyan2), var(--cyan));
+    color: var(--deep); font-weight: 700; font-size: 0.95rem;
+    border: none; border-radius: 10px; cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 24px rgba(0,212,255,0.3);
+    font-family: var(--font-body);
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(0,212,255,0.5); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #020d1e;
+    border-top: 1px solid var(--border2);
+    padding: 4rem 2rem 2rem;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 3rem;
+    max-width: 1180px; margin: 0 auto;
+  }
+  .footer-brand p { font-size: 0.87rem; color: var(--grey); margin-top: 1rem; max-width: 280px; line-height: 1.7; }
+  .footer-col h5 { font-family: var(--font-head); font-size: 0.85rem; font-weight: 700; color: var(--white); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-col ul a { color: var(--grey); font-size: 0.87rem; text-decoration: none; transition: var(--transition); }
+  .footer-col ul a:hover { color: var(--cyan); }
+  .footer-bottom {
+    max-width: 1180px; margin: 3rem auto 0;
+    padding-top: 1.5rem; border-top: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .footer-bottom a { color: var(--cyan); text-decoration: none; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity:1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+  @keyframes scrollDot { 0%,100% { opacity: 1; transform: scaleY(1); } 50% { opacity: 0.3; transform: scaleY(0.5); } }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav.scrolled { padding: 0.8rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-visual { max-width: 280px; margin: 0 auto; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .process-steps::after { display: none; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 4rem 1.2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.5 19a4.5 4.5 0 01-.9-8.9A6 6 0 0118 10a4.5 4.5 0 010 9H6.5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M10 14l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Segcom <span>Group</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get Started</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#why" onclick="toggleMenu()">Why Us</a>
+  <a href="#process" onclick="toggleMenu()">Process</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#contact" class="btn-primary" style="text-align:center;margin-top:0.5rem" onclick="toggleMenu()">Get Started</a>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span>ICT Solutions Provider · Durban, South Africa</div>
+    <h1 class="hero-h1">Power Your Business<br>in the <span class="accent">Cloud Era</span></h1>
+    <p class="hero-sub">Smart ICT solutions, cloud services, and network infrastructure built for modern businesses that demand performance, security, and scale.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get Started →</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">200<span>+</span></div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">99<span>%</span></div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label">Support</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">About Segcom</div>
+        <h2 class="section-title dark">Bridging Business &amp;<br>Smart Technology</h2>
+        <p class="section-sub dark" style="margin-top:1rem">Segcom Group Systems is a comprehensive ICT solutions provider covering the full Information, Communication, and Technology spectrum. We partner with businesses to design, deploy, and manage the infrastructure that drives growth and efficiency.</p>
+        <p class="section-sub dark" style="margin-top:0.8rem;font-size:0.9rem">From cloud migration to network design, hardware support to enterprise software — we deliver end-to-end solutions tailored to your unique business needs.</p>
+        <div class="pillars">
+          <div class="pillar reveal">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Innovation</h4>
+              <p>Cutting-edge cloud and networking solutions that keep your business ahead of the curve.</p>
+            </div>
+          </div>
+          <div class="pillar reveal reveal-delay-1">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Reliability</h4>
+              <p>Built-in redundancy and 24/7 support ensures your operations never skip a beat.</p>
+            </div>
+          </div>
+          <div class="pillar reveal reveal-delay-2">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Growth</h4>
+              <p>Scalable infrastructure and business tools designed to grow alongside your ambitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-orb"></div>
+        <div class="about-rings"></div>
+        <div class="about-rings" style="inset:15%"></div>
+        <div class="about-rings" style="inset:30%"></div>
+        <div class="about-center">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 34a9 9 0 01-1.8-17.8A12 12 0 0136 20a9 9 0 010 18H14z" fill="white" opacity="0.9"/>
+            <path d="M19 28l5 5 9-9" stroke="#0099cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Comprehensive ICT<br>Solutions</h2>
+    <p class="section-sub">From cloud infrastructure to business software — everything your organisation needs to thrive in the digital age.</p>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6.5 19a4.5 4.5 0 01-.9-8.9A6 6 0 0118 10a4.5 4.5 0 010 9H6.5z"/>
+            <path d="M12 13v4M10 15h4"/>
+          </svg>
+        </div>
+        <h3>Cloud Services</h3>
+        <p>Enterprise-grade cloud environments that scale with your business — deploy, manage, and optimise with confidence.</p>
+        <ul class="service-features">
+          <li>Scalable cloud infrastructure</li>
+          <li>Remote access from anywhere</li>
+          <li>Flexible, managed environments</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">02</div>
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+          </svg>
+        </div>
+        <h3>Networking Solutions</h3>
+        <p>Robust LAN, WAN, and wireless network design and optimisation — delivering performance, security, and uptime.</p>
+        <ul class="service-features">
+          <li>LAN / WAN / Wireless design</li>
+          <li>Network performance optimisation</li>
+          <li>Security and access control</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">03</div>
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+            <path d="M7 8h.01M7 11h10M7 14h6"/>
+          </svg>
+        </div>
+        <h3>Hardware &amp; Software</h3>
+        <p>End-to-end device lifecycle management, hosting solutions, and vendor coordination — so you focus on your business.</p>
+        <ul class="service-features">
+          <li>Device procurement &amp; management</li>
+          <li>Hosting &amp; software updates</li>
+          <li>Vendor &amp; warranty management</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-num">04</div>
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3>Business Solutions</h3>
+        <p>Integrated accounting and business management software — including Sage Pastel implementations and customisations.</p>
+        <ul class="service-features">
+          <li>Sage Pastel implementation</li>
+          <li>Accounting system setup</li>
+          <li>Business management tools</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOUD SECTION ─── -->
+<section id="cloud-section">
+  <canvas id="cloud-canvas"></canvas>
+  <div class="cloud-text reveal">
+    <h2>Your Data. <span class="glow-word">Anywhere.</span><br>Anytime. Securely.</h2>
+    <p>We architect resilient cloud ecosystems that keep your business running — regardless of what the world throws at you.</p>
+    <div class="cloud-tags">
+      <span class="cloud-tag">☁️ Cloud First</span>
+      <span class="cloud-tag">🔒 Secure by Design</span>
+      <span class="cloud-tag">⚡ High Performance</span>
+      <span class="cloud-tag">🌍 Always Accessible</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section id="why">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label">Why Segcom</div>
+      <h2 class="section-title dark">Why Businesses Choose Us</h2>
+      <p class="section-sub dark" style="margin:0.8rem auto 0;text-align:center">We don't just sell technology — we become your strategic IT partner for the long term.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h4>Experienced Technical Team</h4>
+        <p>Our certified engineers bring deep expertise across cloud platforms, networking, and enterprise systems.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+          </svg>
+        </div>
+        <h4>End-to-End IT Solutions</h4>
+        <p>From strategy and design to deployment and ongoing support — one partner for your complete IT journey.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </div>
+        <h4>Scalable Infrastructure</h4>
+        <p>Solutions designed to grow with you — whether you're a 5-person startup or a 500-person enterprise.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </div>
+        <h4>Dedicated Support</h4>
+        <p>Real people, real answers. Our support team is always on hand to resolve issues fast and keep you moving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section id="process">
+  <div class="container">
+    <div style="text-align:center">
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title">Our 4-Step Process</h2>
+      <p class="section-sub" style="margin:0.8rem auto 0;text-align:center">From first conversation to full deployment — a proven approach that delivers results.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">1</div>
+        <h4>Consult</h4>
+        <p>We listen deeply to understand your goals, challenges, and technology landscape.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <h4>Design</h4>
+        <p>Our engineers architect a tailored solution optimised for your specific needs.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <h4>Deploy</h4>
+        <p>Seamless implementation with minimal disruption to your day-to-day operations.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <h4>Support</h4>
+        <p>Ongoing monitoring, maintenance, and dedicated support to keep everything running.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's Build Something<br>Together</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item reveal">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+          <div>
+            <h5>Phone</h5>
+            <a href="tel:0317082062">031 708 2062</a>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h5>Email</h5>
+            <a href="mailto:support@segcomgroup.co.za">support@segcomgroup.co.za</a>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h5>Location</h5>
+            <p>Pinetown, Durban, KwaZulu-Natal</p>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:1.5rem;background:var(--card-bg);border:1px solid var(--border2);border-radius:16px;" class="reveal reveal-delay-3">
+          <p style="font-size:0.88rem;color:var(--grey);line-height:1.7">Ready to modernise your infrastructure? Our team is standing by to assess your needs and provide a no-obligation consultation.</p>
+          <p style="margin-top:0.8rem;font-size:0.82rem;color:var(--cyan)">→ Typical response within 2 hours</p>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="John Smith">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@company.co.za">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+27 00 000 0000">
+        </div>
+        <div class="form-group">
+          <label>How Can We Help?</label>
+          <textarea rows="5" placeholder="Tell us about your IT needs, infrastructure challenges, or the services you're interested in..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(event)">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="text-decoration:none">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 19a4.5 4.5 0 01-.9-8.9A6 6 0 0118 10a4.5 4.5 0 010 9H6.5z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M10 14l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="nav-logo-text">Segcom <span>Group</span></span>
+      </a>
+      <p>Powering South African businesses through smart technology, cloud innovation, and reliable ICT solutions since inception.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Cloud Services</a></li>
+        <li><a href="#services">Networking Solutions</a></li>
+        <li><a href="#services">Hardware &amp; Software</a></li>
+        <li><a href="#services">Business Solutions</a></li>
+        <li><a href="#services">IT Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:0317082062">031 708 2062</a></li>
+        <li><a href="mailto:support@segcomgroup.co.za">support@segcomgroup.co.za</a></li>
+        <li><a href="#contact">Pinetown, Durban</a></li>
+        <li><a href="#contact">KwaZulu-Natal, SA</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Segcom Group Systems. All rights reserved.</p>
+    <p>Built for the <a href="#hero">Cloud Era</a></p>
+  </div>
+</footer>
+
+<script>
+// ─── MOBILE MENU ───
+function toggleMenu() {
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+
+// ─── NAV SCROLL ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── REVEAL ON SCROLL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => observer.observe(r));
+
+// ─── HERO CANVAS: Particles + Network ───
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], mouse = { x: -1000, y: -1000 };
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); init(); });
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 0.3;
+      this.vy = (Math.random() - 0.5) * 0.2 - 0.1;
+      this.r = Math.random() * 1.8 + 0.4;
+      this.alpha = Math.random() * 0.5 + 0.1;
+      this.type = Math.random() > 0.85 ? 'icon' : 'dot';
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.y < -20 || this.x < -20 || this.x > W + 20) this.reset();
+    }
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      if (this.type === 'icon') {
+        ctx.fillStyle = '#00d4ff';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        // Small cloud shape
+        ctx.strokeStyle = 'rgba(0,212,255,0.4)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(this.x - 4, this.y, 3, Math.PI * 0.5, Math.PI * 1.5);
+        ctx.arc(this.x, this.y - 3, 4, Math.PI, 0);
+        ctx.arc(this.x + 4, this.y, 3, Math.PI * 1.5, Math.PI * 0.5);
+        ctx.lineTo(this.x - 4, this.y + 3);
+        ctx.stroke();
+      } else {
+        ctx.fillStyle = `rgba(0,180,220,${this.alpha})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+
+  function init() {
+    const count = Math.min(80, Math.floor(W * H / 12000));
+    particles = Array.from({ length: count }, () => new Particle());
+  }
+
+  function drawConnections() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 120) {
+          ctx.save();
+          ctx.globalAlpha = (1 - d / 120) * 0.12;
+          ctx.strokeStyle = '#00d4ff';
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    drawConnections();
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(loop);
+  }
+
+  init();
+  loop();
+
+  canvas.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+})();
+
+// ─── CLOUD CANVAS: Data pulses ───
+(function() {
+  const canvas = document.getElementById('cloud-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  const nodes = [];
+  const pulses = [];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+    buildNodes();
+  }
+
+  function buildNodes() {
+    nodes.length = 0;
+    const count = Math.min(12, Math.floor(W / 100));
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: (Math.random() * 0.8 + 0.1) * W,
+        y: (Math.random() * 0.6 + 0.2) * H,
+        r: Math.random() * 2 + 2
+      });
+    }
+  }
+
+  function spawnPulse() {
+    if (nodes.length < 2) return;
+    const a = Math.floor(Math.random() * nodes.length);
+    let b;
+    do { b = Math.floor(Math.random() * nodes.length); } while (b === a);
+    pulses.push({ from: nodes[a], to: nodes[b], t: 0, speed: 0.004 + Math.random() * 0.004 });
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  setInterval(spawnPulse, 600);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x;
+        const dy = nodes[i].y - nodes[j].y;
+        const d = Math.sqrt(dx*dx+dy*dy);
+        if (d < W * 0.35) {
+          ctx.save();
+          ctx.globalAlpha = 0.06;
+          ctx.strokeStyle = '#00d4ff';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+
+    // Draw nodes
+    nodes.forEach(n => {
+      ctx.save();
+      ctx.globalAlpha = 0.3;
+      ctx.fillStyle = '#00d4ff';
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    // Draw pulses
+    for (let i = pulses.length - 1; i >= 0; i--) {
+      const p = pulses[i];
+      p.t += p.speed;
+      if (p.t > 1) { pulses.splice(i, 1); continue; }
+      const px = p.from.x + (p.to.x - p.from.x) * p.t;
+      const py = p.from.y + (p.to.y - p.from.y) * p.t;
+      const alpha = Math.sin(p.t * Math.PI);
+      ctx.save();
+      ctx.globalAlpha = alpha * 0.9;
+      const grad = ctx.createRadialGradient(px, py, 0, px, py, 6);
+      grad.addColorStop(0, '#00d4ff');
+      grad.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(px, py, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
+
+// ─── HERO SCROLL INDICATOR ───
+setTimeout(() => {
+  document.querySelector('.hero-scroll').classList.add('visible');
+}, 1200);
+
+// ─── FORM SUBMIT ───
+function handleSubmit(e) {
+  const btn = e.target;
+  btn.textContent = 'Sending...';
+  btn.style.opacity = '0.7';
+  setTimeout(() => {
+    btn.textContent = '✓ Message Sent!';
+    btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+    btn.style.opacity = '1';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+    }, 3000);
+  }, 1200);
+}
+</script>
+</body>
+</html>
